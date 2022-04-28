@@ -34,3 +34,14 @@ jupyter使用技巧
 中国科技大学 ：https://pypi.mirrors.ustc.edu.cn/simple/
 华中科技大学：http://pypi.hustunique.com/
 豆瓣：http://pypi.douban.com/simple/
+
+
+1.
+git强制覆盖本地文件（与git远程仓库保持一致）：
+git fetch
+git reset --hard origin/master
+2.git友好合并远程修改和本地修改
+git rebase origin/master
+3.git强制推送本地代码到远程仓库的develop分支
+git push --force origin main
+

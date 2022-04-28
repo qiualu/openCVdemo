@@ -42,6 +42,6 @@ git fetch
 git reset --hard origin/master
 2.git友好合并远程修改和本地修改
 git rebase origin/master
-3.git强制推送本地代码到远程仓库的develop分支
+3.git强制推送本地代码到远程仓库的main分支
 git push --force origin main
 

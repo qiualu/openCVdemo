@@ -1,4 +1,3 @@
-
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -93,21 +92,24 @@ def convertResult(img):
     img = img[:,:,::-1]
     return img
 while True:
-
-    ref1, frame1 = capture1.read()
-    ref2, frame2 = capture2.read()
-    print(type(ref1), ref1, type(frame1), type(ref2), ref2, type(frame2))
-    if ref1 and ref2:
-        cv2.imshow("tu1", frame1)
-        cv2.imshow("tu2", frame2)
-        # wrap 2 image
-        # choose list_images[0] as desination
-        pano, non_blend, left_side, right_side = warpTwoImages2(frame2, frame1, True)
-        img = np.array(pano, dtype=float) / float(255)
-        if pano.shape[0] > 0 and pano.shape[1]:
-            cv2.imshow("pano ", img)
-    if cv2.waitKey(30) > 0:
-        break
+    try:
+        ref1, frame1 = capture1.read()
+        ref2, frame2 = capture2.read()
+        print(type(ref1), ref1, type(frame1), type(ref2), ref2, type(frame2))
+        if ref1 and ref2:
+            cv2.imshow("tu1", frame1)
+            cv2.imshow("tu2", frame2)
+            # wrap 2 image
+            # choose list_images[0] as desination
+            pano, non_blend, left_side, right_side = warpTwoImages2(frame2, frame1, True)
+            img = np.array(pano, dtype=float) / float(255)
+            if pano.shape[0] > 0 and pano.shape[1]:
+                print("pano : ",pano.shape)
+                cv2.imshow("pano ", img)
+        if cv2.waitKey(30) > 0:
+            break
+    except Exception as e:
+        print("摄像头被触碰 e ",e)
 
 
 

@@ -118,6 +118,14 @@ def warpTwoImages(src_img, dst_img, showstep=False):
             side = "right"
         height_pano = ymax - ymin
 
+        dst_img_rz_size_H = dst_img.shape[0]
+        dst_img_rz_size_W = dst_img.shape[1]
+        if height_pano < dst_img_rz_size_H:
+            height_pano = dst_img_rz_size_H
+        if width_pano < dst_img_rz_size_W:
+            width_pano = dst_img_rz_size_W
+
+
         # Translation
         # https://stackoverflow.com/a/20355545
         Ht = np.array([[1, 0, t[0]], [0, 1, t[1]], [0, 0, 1]])

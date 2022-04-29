@@ -83,6 +83,7 @@ def warpTwoImages2(src_img, dst_img, showstep=False):
 
 capture1 = cv2.VideoCapture(0)
 capture2 = cv2.VideoCapture(1)
+
 def convertResult(img):
     '''Because of your images which were loaded by opencv,
     in order to display the correct output with matplotlib,

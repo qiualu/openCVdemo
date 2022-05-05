@@ -129,6 +129,8 @@ def warpTwoImages(src_img, dst_img, showstep=False):
         # Translation
         # https://stackoverflow.com/a/20355545
         Ht = np.array([[1, 0, t[0]], [0, 1, t[1]], [0, 0, 1]])
+
+
         src_img_warped = cv2.warpPerspective(
             src_img, Ht.dot(H), (width_pano, height_pano)
         )

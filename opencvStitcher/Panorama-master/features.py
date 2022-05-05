@@ -70,7 +70,7 @@ def generateHomography(src_img, dst_img, ransacRep=5.0):
 
     src_points = np.float32([src_kp[m.queryIdx].pt for m in good]).reshape(-1, 1, 2)
     dst_points = np.float32([dst_kp[m.trainIdx].pt for m in good]).reshape(-1, 1, 2)
-
+    # ＃返回值中H为变换矩阵.mask是掩模，在线的点
     H, mask = cv2.findHomography(src_points, dst_points, cv2.RANSAC, ransacRep)
     matchesMask = mask.ravel().tolist()
     return H, matchesMask
